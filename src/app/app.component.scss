@@ -5,4 +5,8 @@ main {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: hidden;
+
+  .container {
+    padding: 20px;
+  }
 }

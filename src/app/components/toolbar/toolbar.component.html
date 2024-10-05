@@ -1,0 +1,24 @@
+<mat-drawer-container class="drawer-container">
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sideMenu.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>KLG invoice generator</span>
+  </mat-toolbar>
+
+  <div class="content">
+    <ng-content/>
+  </div>
+
+  <mat-drawer #sideMenu mode="over">
+    <div class="sidenav">
+      <button mat-icon-button (click)="sideMenu.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a mat-button routerLink="/">Add</a>
+      <a mat-button routerLink="/preview">Preview</a>
+    </div>
+  </mat-drawer>
+
+</mat-drawer-container>
