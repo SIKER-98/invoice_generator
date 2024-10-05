@@ -53,6 +53,10 @@ export class AddPageComponent {
       this.errors.push('Please correct the errors in the form');
     }
 
+    if (this.errors.length > 0) {
+      return;
+    }
+
     const products = this.productForm.value.products;
     this.router.navigate(['/preview'], {state: {products}});
   }
