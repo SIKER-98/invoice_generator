@@ -1,4 +1,44 @@
-<h1>Preview</h1>
-<button mat-raised-button color="primary">TEST</button>
-<button mat-raised-button color="accent">TEST</button>
-<button mat-raised-button color="warn">TEST</button>
+<div>
+  <h1>Company Information</h1>
+  <div *ngIf="company">
+    <p><b>Name:</b> {{ company.name }}</p>
+    <p><b>Address:</b> {{ company.address }}</p>
+    <p><b>Phones:</b> {{ company.phones.join(', ') }}</p>
+  </div>
+
+  <div *ngIf="!company">Loading company data...</div>
+
+  <mat-divider/>
+
+  <div class="list-container">
+    <h2>Product List:</h2>
+
+    <ng-container *ngIf="products && products.length > 0">
+      <mat-list>
+        <ng-container *ngFor="let product of products">
+          <mat-list-item class="product-list-item">
+            <span matListItemTitle>{{ product.name }}</span>
+            <span matListItemLine>Price: {{ product.price }}</span>
+            <span matListItemLine>Count: {{ product.count }}</span>
+
+            <div matListItemMeta>
+              {{ product.price * product.count }}
+            </div>
+          </mat-list-item>
+
+          <mat-divider/>
+
+        </ng-container>
+
+        <mat-list-item>
+          <span matListItemTitle><b>Total:</b></span>
+          <div matListItemMeta><b>{{ total }}</b></div>
+        </mat-list-item>
+      </mat-list>
+    </ng-container>
+
+    <ng-container *ngIf="!products || products.length == 0">
+      No items
+    </ng-container>
+  </div>
+</div>
