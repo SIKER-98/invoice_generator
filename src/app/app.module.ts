@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ToolbarComponent} from "./components/toolbar/toolbar.component";
 import {MaterialModule} from "./shared/material/material.module";
 import {PhoneListPipe, TotalPipe} from "./pipes";
+import {ProductService} from "./services";
 
 const COMPONENTS = [
   AddPageComponent,
@@ -35,7 +36,7 @@ const PIPES = [
     ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

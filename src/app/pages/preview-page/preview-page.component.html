@@ -15,7 +15,7 @@
 
     <ng-container *ngIf="products && products.length > 0">
       <mat-list>
-        <ng-container *ngFor="let product of products">
+        <ng-container *ngFor="let product of products; let index = index">
           <mat-list-item class="product-list-item">
             <span matListItemTitle>{{ product.name }}</span>
             <span matListItemLine>Price: {{ product.price }}</span>
@@ -23,6 +23,9 @@
 
             <div matListItemMeta>
               {{ product.price * product.count }}
+              <button mat-icon-button color="warn" (click)="removeProduct(index)">
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
           </mat-list-item>
 

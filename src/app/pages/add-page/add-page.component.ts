@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {ProductService} from "../../services";
 
 
 @Component({
@@ -13,6 +14,7 @@ export class AddPageComponent {
   errors: string[] = [];
 
   constructor(private formBuilder: FormBuilder,
+              private productService: ProductService,
               private router: Router) {
     this.productForm = this.formBuilder.group({
       products: this.formBuilder.array([])
@@ -57,7 +59,7 @@ export class AddPageComponent {
       return;
     }
 
-    const products = this.productForm.value.products;
-    this.router.navigate(['/preview'], {state: {products}});
+    this.productService.addProducts(this.productForm.value.products);
+    this.router.navigate(['/preview']);
   }
 }

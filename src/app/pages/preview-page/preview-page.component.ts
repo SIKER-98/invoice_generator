@@ -1,8 +1,7 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
 import {CompanyInfo, Product} from "../../models";
 import {Subscription} from "rxjs";
-import {CompanyService} from "../../services";
+import {CompanyService, ProductService} from "../../services";
 
 @Component({
   selector: 'app-preview-page',
@@ -14,16 +13,14 @@ export class PreviewPageComponent implements OnInit, OnDestroy {
 
   company?: CompanyInfo;
   products?: Product[];
-  total: number = 0;
 
-  constructor(private router: Router,
+  constructor(private productService: ProductService,
               private companyService: CompanyService) {
-    const navigation = this.router.getCurrentNavigation();
-    this.products = navigation?.extras.state?.['products'] as Product[];
   }
 
   ngOnInit(): void {
     this.getCompanyData();
+    this.getProducts();
   }
 
   ngOnDestroy(): void {
@@ -35,6 +32,15 @@ export class PreviewPageComponent implements OnInit, OnDestroy {
       .subscribe({
         next: data => this.company = data,
         error: err => console.error(err)
-      }));
+      })
+    );
+  }
+
+  private getProducts(): void {
+    this.products = this.productService.getProducts();
+  }
+
+  removeProduct(index: number): void {
+    this.productService.removeProduct(index);
   }
 }
