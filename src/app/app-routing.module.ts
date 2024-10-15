@@ -1,10 +1,15 @@
 import {RouterModule, Routes} from "@angular/router";
-import {AddPageComponent, PreviewPageComponent} from "./pages";
 import {NgModule} from "@angular/core";
 
 const routes: Routes = [
-  {path: '', component: AddPageComponent},
-  {path: 'preview', component: PreviewPageComponent}
+  {
+    path: '',
+    loadChildren: () => import("./module/invoice").then(m => m.InvoiceModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'preview'
+  }
 ];
 
 @NgModule({

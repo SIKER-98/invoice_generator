@@ -16,11 +16,11 @@ export class PreviewPageComponent implements OnInit, OnDestroy {
 
   constructor(private productService: ProductService,
               private companyService: CompanyService) {
+    this.getProducts();
   }
 
   ngOnInit(): void {
     this.getCompanyData();
-    this.getProducts();
   }
 
   ngOnDestroy(): void {

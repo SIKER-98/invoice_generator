@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {CompanyInfo} from "../models";
 import {HttpClient} from "@angular/common/http";
-import {tripleRetransmission} from "../utils";
+import {tripleRetransmission} from "../../../shared/utils";
 
 
 @Injectable({
