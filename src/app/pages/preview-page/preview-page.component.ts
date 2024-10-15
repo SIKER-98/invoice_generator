@@ -24,7 +24,6 @@ export class PreviewPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getCompanyData();
-    this.calculateTotal();
   }
 
   ngOnDestroy(): void {
@@ -41,11 +40,5 @@ export class PreviewPageComponent implements OnInit, OnDestroy {
         next: data => this.company = data as CompanyInfo,
         error: err => console.error(err)
       }));
-  }
-
-  private calculateTotal(): void {
-    if (this.products) {
-      this.total = this.products.reduce((acc: number, product: Product) => acc + product.count * product.price, 0);
-    }
   }
 }
