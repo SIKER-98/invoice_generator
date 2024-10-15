@@ -8,17 +8,23 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ToolbarComponent} from "./components/toolbar/toolbar.component";
 import {MaterialModule} from "./shared/material/material.module";
+import {PhoneListPipe} from "./pipes";
 
 const COMPONENTS = [
   AddPageComponent,
   PreviewPageComponent,
   AppComponent,
   ToolbarComponent
+];
+
+const PIPES = [
+  PhoneListPipe
 ]
 
 @NgModule({
   declarations: [
-    COMPONENTS
+    COMPONENTS,
+    PIPES
   ],
   imports: [
     AppRoutingModule,

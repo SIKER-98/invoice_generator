@@ -3,7 +3,7 @@
   <div *ngIf="company">
     <p><b>Name:</b> {{ company.name }}</p>
     <p><b>Address:</b> {{ company.address }}</p>
-    <p><b>Phones:</b> {{ company.phones.join(', ') }}</p>
+    <p><b>Phones:</b> {{ company.phones | phoneList }}</p>
   </div>
 
   <div *ngIf="!company">Loading company data...</div>
