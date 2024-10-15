@@ -1,17 +1,17 @@
 import {Injectable} from "@angular/core";
-import {Product} from "../models";
+import {ProductModel} from "../models";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private products: Product[] = [];
+  private products: ProductModel[] = [];
 
-  getProducts(): Product[] {
+  getProducts(): ProductModel[] {
     return this.products;
   }
 
-  addProducts(products: Product[]): void {
+  addProducts(products: ProductModel[]): void {
     this.products = this.products.concat(products);
   }
 

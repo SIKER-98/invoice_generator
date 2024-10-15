@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {CompanyInfo} from "../models";
+import {CompanyInfoModel} from "../models";
 import {HttpClient} from "@angular/common/http";
 import {tripleRetransmission} from "../../../shared/utils";
 
@@ -14,7 +14,7 @@ export class CompanyService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getCompanyInfo(): Observable<CompanyInfo> {
-    return tripleRetransmission(this.httpClient.get<CompanyInfo>(this.apiGetCompanyInfoUrl));
+  public getCompanyInfo(): Observable<CompanyInfoModel> {
+    return tripleRetransmission(this.httpClient.get<CompanyInfoModel>(this.apiGetCompanyInfoUrl));
   }
 }

@@ -1,2 +1,2 @@
-export * from './CompanyInfo';
-export * from './Product';
+export * from './company-info.model';
+export * from './product.model';

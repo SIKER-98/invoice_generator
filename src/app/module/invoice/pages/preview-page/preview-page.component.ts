@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {CompanyInfo, Product} from "../../models";
+import {CompanyInfoModel, ProductModel} from "../../models";
 import {Subscription} from "rxjs";
 import {CompanyService, ProductService} from "../../services";
 
@@ -11,8 +11,8 @@ import {CompanyService, ProductService} from "../../services";
 export class PreviewPageComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
 
-  company?: CompanyInfo;
-  products?: Product[];
+  company?: CompanyInfoModel;
+  products?: ProductModel[];
 
   constructor(private productService: ProductService,
               private companyService: CompanyService) {
