@@ -1,7 +1,8 @@
 import {Injectable} from "@angular/core";
-import {delay, Observable, retry} from "rxjs";
+import {Observable} from "rxjs";
 import {CompanyInfo} from "../models";
 import {HttpClient} from "@angular/common/http";
+import {tripleRetransmission} from "../utils";
 
 
 @Injectable({
@@ -14,10 +15,6 @@ export class CompanyService {
   }
 
   public getCompanyInfo(): Observable<CompanyInfo> {
-    return this.httpClient.get<CompanyInfo>(this.apiGetCompanyInfoUrl)
-      .pipe(
-        retry(3),
-        delay(1000),
-      );
+    return tripleRetransmission(this.httpClient.get<CompanyInfo>(this.apiGetCompanyInfoUrl));
   }
 }
